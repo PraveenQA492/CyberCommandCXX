@@ -9,7 +9,10 @@ test.describe('LoginPage', () => {
 
     test('Loginpage- valid @smoke', async ({ page }) => {
         loginpage = new LoginPage(page);
+        //navigate to URL
         await loginpage.navigateLoginPage();
+
+        //Perform login with valid credentials
         await loginpage.submitLogin(loginPageData.Adminuser.username, 
                                     loginPageData.Adminuser.password);
         await loginpage.checkValidLogin();
