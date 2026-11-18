@@ -4,7 +4,7 @@ function getTenantData()
 {
     const uniqueId = `${Date.now()}${Math.floor(Math.random() * 1000)}`;
     return {
-        fullName:'Auto Tenant User',
+        fullName:'Auto Tenant User${uniqueId}',
         email:`autotenant.${uniqueId}@cybercommandtest.tech`,
         companyName:`AutoTenant Company ${uniqueId}`,
         password:'Tenant@12345',
@@ -14,6 +14,12 @@ function getTenantData()
 
 const registrationData =
 {
-    getTenantData
+    getTenantData,
+
+    //Pre-registered Tenant user used to validate sign-in after user creation
+    RegisteredTenant:{
+        email:'mosilog153@bcough.com',
+        password:'Tenant@12345'
+    }
 };
 export default registrationData;

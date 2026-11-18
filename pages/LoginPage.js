@@ -13,7 +13,7 @@ class LoginPage
         //Locators for Login page
         this.loginPageUsername = page.getByPlaceholder('Work email');
         this.loginPagePassword = page.getByPlaceholder('Password');
-        this.loginPageSubmit = page.getByRole('button',{name:'Sign in to CCX →'});
+        this.loginPageSubmit = page.getByRole('button',{name:'Login', exact:true});
     }
 
     //Navigate to CCX Login page
@@ -42,6 +42,12 @@ class LoginPage
          await this.enterLoginPageUsername(username);
         await this.enterLoginPagePassword(password);
              await this.clickLogin();
+    }
+
+    //After successful login user lands on the Users page
+    async checkNavigatedToUsersPage()
+    {
+        await expect(this.page).toHaveURL('https://dev-app-grc.cybercommand.tech/users', { timeout: 30000 });
     }
 
     async checkValidLogin()
